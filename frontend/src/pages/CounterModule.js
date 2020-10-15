@@ -13,9 +13,7 @@ export default function CounterModule(props) {
         <a href="#" class="btn btn-outline-primary">
           Medicine Return
         </a>
-        <a href="#" class="btn btn-outline-primary">
-          Update Batch Number
-        </a>
+        
       </div>
       <MainCounterTable />
     </div>
