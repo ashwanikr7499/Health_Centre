@@ -21,43 +21,48 @@ export default function StockCounterFormDialog({ row }) {
     setOpen(false);
   };
   const handleCloseAndSubmit = () => {
-    if (textInput > row.med_qty) {
+    if (parseInt(textInput) > parseInt(row.med_qty)) {
+      alert("Cant transfer ");
     } else {
-      var toDecrease = row.med_qty - textInput;
+      var toDecrease = parseInt(row.med_qty) - parseInt(textInput);
       //decrease  from stock counter
-      const apiUrl = "http://localhost:8000/api/stock_medicines/" + row.id;
-      axios.put(apiUrl, { med_qty: toDecrease }).then((repos) => {});
+      const api_stock_med = "http://localhost:8000/api/stock_medicines/" + row.id;
+      axios.put(api_stock_med, { med_qty: toDecrease }).then((repos) => { });
+      
 
       //add to main counter
-      const apiUrl2 = "http://localhost:8000/api/medicines/";
+      const api_main_med = "http://localhost:8000/api/medicines/";
       var mainCounterTableData;
-      axios.get(apiUrl2).then((repos) => {
+      axios.get(api_main_med).then((repos) => {
         mainCounterTableData = repos.data;
-        var found = 0;
+        let found = 0;
         console.log("ashu" + mainCounterTableData);
         mainCounterTableData.map((each_row) => {
-          if (each_row.med_name == row.med_name) {
+          
+          if (each_row.med_name ===row.med_name) {
             var toIncrease = parseInt(textInput) + parseInt(each_row.med_qty);
 
-            const apiUrl = "http://localhost:8000/api/medicines/" + each_row.id;
-            axios.put(apiUrl, { med_qty: toIncrease }).then((repos) => {});
+            
+            axios.put(api_main_med+each_row.id, { med_qty: toIncrease }).then((repos) => {});
             found = 1;
           }
         });
+        console.log("found="+found)
         if (found === 0) {
-          const apiUrl = "http://localhost:8000/api/medicines/";
+          
           axios
-            .post(apiUrl, {
+            .post(api_main_med, {
               med_name: row.med_name,
               med_batchNo: row.med_batchNo,
               med_qty: textInput,
             })
             .then((repos) => {});
         }
+         window.location.reload();
       });
-      window.location.reload();
+     
     }
-
+    
     setOpen(false);
   };
 
