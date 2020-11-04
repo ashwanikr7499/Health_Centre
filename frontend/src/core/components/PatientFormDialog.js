@@ -36,9 +36,9 @@ export default function PatientFormDialog({ row }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleCloseAndSubmit = () => {
+  const handleCloseAndSubmit = async() => {
     const apiUrl = "http://localhost:8000/api/patients/" + row.id;
-    axios
+    await axios
       .put(apiUrl, {
         pat_mid: pat_mid,
         pat_dose: pat_dose,

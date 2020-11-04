@@ -35,7 +35,7 @@ export default function StockCounterFormDialog({ row }) {
       await axios.get(api_main_med).then((repos) => {
         mainCounterTableData = repos.data;
         let found = 0;
-        console.log("ashu" + mainCounterTableData);
+       
         mainCounterTableData.map((each_row) => {
           if (each_row.med_name === row.med_name) {
             var toIncrease = parseInt(textInput) + parseInt(each_row.med_qty);
