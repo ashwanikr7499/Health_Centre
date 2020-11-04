@@ -12,9 +12,8 @@ import { Router } from "react-router-dom";
 function App() {
   return (
     <Router history={history}>
-      <div className="App">
+      <div className="App" style={{ background: "#000000" }}>
         <NavTabs />
-
         <Switch>
           <Route path="/stock" exact component={StockTransferModule} />
           <Route path="/counter" exact component={CounterModule} />

@@ -32,24 +32,41 @@ export default function MainCounterTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell align="right">Medicine Name</TableCell>
-            <TableCell align="right">Medicine Batch Number</TableCell>
-            <TableCell align="right">Quantity</TableCell>
-            <TableCell align="right">Updated At</TableCell>
-            <TableCell align="right">Operation</TableCell>
+            <TableCell style={{ background: "#808080" }}>ID</TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Medicine Name
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Medicine Batch Number
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Quantity
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Updated At
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Operation
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {mainTableRows.map((row) => (
-            <TableRow key={row.id}>
+          {mainTableRows.map((row, index) => (
+            <TableRow key={row.id} style={index % 2 ? { background: "#d3d3d3" } : { background: "white" }}>
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>
               <TableCell align="right">{row.med_name}</TableCell>
               <TableCell align="right">{row.med_batchNo}</TableCell>
               <TableCell align="right">{row.med_qty}</TableCell>
-              <TableCell align="right">{row.updatedAt}</TableCell>
+              <TableCell align="right">
+                {(() => {
+                  var x = row.updatedAt;
+                  return new Date(x).toLocaleString(undefined, {
+                    timeZone: "Asia/Kolkata",
+                  });
+                })()}
+              </TableCell>
               <TableCell align="right">
                 {/* <a href="#" class="btn btn-icon icon-left btn-warning">
                   <i class="fas fa-exclamation-triangle"></i>

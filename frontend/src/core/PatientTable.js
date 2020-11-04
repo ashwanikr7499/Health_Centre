@@ -31,28 +31,62 @@ export default function PatientTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Patient ID</TableCell>
-            <TableCell align="right">Patient Visitor ID</TableCell>
-            <TableCell align="right">Name </TableCell>
-            <TableCell align="right">Relation</TableCell>
-            <TableCell align="right">Mid</TableCell>
-            <TableCell align="right">Dose</TableCell>
-            <TableCell align="right">n_days</TableCell>
-            <TableCell align="right">m_qty</TableCell>
-            <TableCell align="right">Visit Date</TableCell>
-            <TableCell align="right">Doctor id</TableCell>
-            <TableCell align="right">m_status</TableCell>
-            <TableCell align="right">med_issued_by</TableCell>
-            <TableCell align="right">med_issued_on</TableCell>
-            <TableCell align="right">Visit No</TableCell>
-            <TableCell align="right">Press No</TableCell>
-            <TableCell align="right">Batch No</TableCell>
-            <TableCell align="right">Operation</TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Patient ID
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Patient Visitor ID
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Name{" "}
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Relation
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Mid
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Dose
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              n_days
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              m_qty
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Visit Date
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Doctor id
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              m_status
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              med_issued_by
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              med_issued_on
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Visit No
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Press No
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Batch No
+            </TableCell>
+            <TableCell align="right" style={{ background: "#808080" }}>
+              Operation
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {patientTableRows.map((row) => (
-            <TableRow key={row.id}>
+          {patientTableRows.map((row,index) => (
+            <TableRow key={row.id} style={index % 2 ? { background: "#d3d3d3" } : { background: "white" }}>
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>

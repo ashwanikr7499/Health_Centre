@@ -20,49 +20,40 @@ export default function StockCounterFormDialog({ row }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleCloseAndSubmit = () => {
+  const handleCloseAndSubmit = async () => {
     if (parseInt(textInput) > parseInt(row.med_qty)) {
       alert("Cant transfer ");
     } else {
       var toDecrease = parseInt(row.med_qty) - parseInt(textInput);
       //decrease  from stock counter
       const api_stock_med = "http://localhost:8000/api/stock_medicines/" + row.id;
-      axios.put(api_stock_med, { med_qty: toDecrease }).then((repos) => { });
-      
+      await axios.put(api_stock_med, { med_qty: toDecrease }).then((repos) => {});
 
       //add to main counter
       const api_main_med = "http://localhost:8000/api/medicines/";
       var mainCounterTableData;
-      axios.get(api_main_med).then((repos) => {
+      await axios.get(api_main_med).then((repos) => {
         mainCounterTableData = repos.data;
         let found = 0;
         console.log("ashu" + mainCounterTableData);
         mainCounterTableData.map((each_row) => {
-          
-          if (each_row.med_name ===row.med_name) {
+          if (each_row.med_name === row.med_name) {
             var toIncrease = parseInt(textInput) + parseInt(each_row.med_qty);
 
-            
-            axios.put(api_main_med+each_row.id, { med_qty: toIncrease }).then((repos) => {});
+            axios.put(api_main_med + each_row.id, { med_qty: toIncrease }).then((repos) => {});
             found = 1;
           }
         });
-        console.log("found="+found)
+        console.log("found=" + found);
         if (found === 0) {
-          
           axios
-            .post(api_main_med, {
-              med_name: row.med_name,
-              med_batchNo: row.med_batchNo,
-              med_qty: textInput,
-            })
+            .post(api_main_med, { med_name: row.med_name, med_batchNo: row.med_batchNo, med_qty: textInput })
             .then((repos) => {});
         }
-         window.location.reload();
+        window.location.reload();
       });
-     
     }
-    
+
     setOpen(false);
   };
 
