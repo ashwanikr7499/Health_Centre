@@ -31,55 +31,55 @@ export default function PatientTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Patient ID
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Patient Visitor ID
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Name{" "}
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Relation
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Mid
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Dose
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               n_days
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               m_qty
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Visit Date
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Doctor id
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               m_status
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               med_issued_by
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               med_issued_on
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Visit No
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Press No
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Batch No
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Operation
             </TableCell>
           </TableRow>

@@ -32,20 +32,20 @@ export default function MainCounterTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell style={{ background: "#808080" }}>ID</TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>ID</TableCell>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Medicine Name
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Medicine Batch Number
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Quantity
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Updated At
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" }}>
+            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
               Operation
             </TableCell>
           </TableRow>
