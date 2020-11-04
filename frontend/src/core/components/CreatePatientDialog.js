@@ -11,11 +11,10 @@ import Icon from "@material-ui/core/Icon";
 import EditIcon from "@material-ui/icons/Edit";
 import axios from "axios";
 
-export default function CreateMedicineFormDialog() {
+export default function CreatePatientDialog() {
   const [open, setOpen] = React.useState(false);
-  const [med_name, set_med_name] = React.useState("");
-  const [med_batchNo, set_med_batchNo] = React.useState("");
-  const [med_qty, set_med_qty] = React.useState("");
+  const [pat_visitor_id, set_pat_visitor_id] = React.useState("");
+  const [pat_name, set_pat_name] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -25,12 +24,11 @@ export default function CreateMedicineFormDialog() {
     setOpen(false);
   };
   const handleCloseAndSubmit = async () => {
-    const apiUrl = "http://localhost:8000/api/medicines/";
+    const apiUrl = "http://localhost:8000/api/patients/";
     await axios
       .post(apiUrl, {
-        med_name,
-        med_batchNo,
-        med_qty,
+        pat_visitor_id,
+        pat_name,
       })
       .then((repos) => {});
 
@@ -42,21 +40,21 @@ export default function CreateMedicineFormDialog() {
     <div>
       <div class="buttons">
         <a href="#" class="btn btn-outline-primary" onClick={handleClickOpen}>
-          Medicine Return
+          New Patient
         </a>
       </div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Return Medicine</DialogTitle>
+        <DialogTitle id="form-dialog-title">New Patient Info.</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            value={med_name}
+            value={pat_visitor_id}
             onChange={(event) => {
-              set_med_name(event.target.value);
+              set_pat_visitor_id(event.target.value);
             }}
-            label="Medicine Name"
+            label="patient Visitor id"
             type="text"
             fullWidth
           />
@@ -65,24 +63,11 @@ export default function CreateMedicineFormDialog() {
             autoFocus
             margin="dense"
             id="name"
-            value={med_batchNo}
+            value={pat_name}
             onChange={(event) => {
-              set_med_batchNo(event.target.value);
+              set_pat_name(event.target.value);
             }}
-            label="Medicine Batch no."
-            type="text"
-            fullWidth
-          />
-
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            value={med_qty}
-            onChange={(event) => {
-              set_med_qty(event.target.value);
-            }}
-            label="medicine quantity"
+            label="Patient NAME"
             type="text"
             fullWidth
           />

@@ -36,12 +36,13 @@ export default function PatientFormDialog({ row }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleCloseAndSubmit = async() => {
+  const handleCloseAndSubmit = async () => {
     const apiUrl = "http://localhost:8000/api/patients/" + row.id;
     await axios
       .put(apiUrl, {
         pat_mid: pat_mid,
         pat_dose: pat_dose,
+        pat_prel,
         pat_ndays: pat_ndays,
         pat_mqty: pat_mqty,
         pat_visit_date: pat_visit_date,
