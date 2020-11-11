@@ -10,7 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import MainCounterFormDialog from "./components/MainCounterFormDialog";
-
+import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -21,31 +21,44 @@ export default function MainCounterTable() {
   const classes = useStyles();
 
   const [mainTableRows, setMainTableRows] = useState([]);
+  const [searchedMedicineName, setSearchedMedicineName] = useState([]);
   useEffect(() => {
     const apiUrl = "http://localhost:8000/api/medicines/";
-    axios.get(apiUrl).then((repos) => {
+    axios.get(apiUrl, { params: { med_name: searchedMedicineName } }).then((repos) => {
       setMainTableRows(repos.data);
     });
-  }, []);
+  }, [searchedMedicineName]);
   return (
     <TableContainer component={Paper}>
+      <TextField
+        autoFocus
+        margin="dense"
+        id="name"
+        value={searchedMedicineName}
+        onChange={(event) => {
+          setSearchedMedicineName(event.target.value);
+        }}
+        label="Search by Medicine NAME"
+        type="text"
+        fullWidth
+      />
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>ID</TableCell>
-            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
+            <TableCell style={{ background: "#808080", fontSize: 18, fontWeight: "bold" }}>ID</TableCell>
+            <TableCell align="right" style={{ background: "#808080", fontSize: 18, fontWeight: "bold" }}>
               Medicine Name
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
+            <TableCell align="right" style={{ background: "#808080", fontSize: 18, fontWeight: "bold" }}>
               Medicine Batch Number
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
+            <TableCell align="right" style={{ background: "#808080", fontSize: 18, fontWeight: "bold" }}>
               Quantity
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
+            <TableCell align="right" style={{ background: "#808080", fontSize: 18, fontWeight: "bold" }}>
               Updated At
             </TableCell>
-            <TableCell align="right" style={{ background: "#808080" ,fontSize:18, fontWeight: 'bold' }}>
+            <TableCell align="right" style={{ background: "#808080", fontSize: 18, fontWeight: "bold" }}>
               Operation
             </TableCell>
           </TableRow>

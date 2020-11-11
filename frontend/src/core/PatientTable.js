@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import axios from "axios";
 import PatientFormDialog from "./components/PatientFormDialog";
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles({
   table: {
@@ -19,15 +20,28 @@ const useStyles = makeStyles({
 export default function PatientTable() {
   const classes = useStyles();
   const [patientTableRows, setPatientTableRows] = useState([]);
+  const [searchedPatientName, setSearchedPatientName] = useState([]);
   useEffect(() => {
     const apiUrl = "http://localhost:8000/api/patients/";
-    axios.get(apiUrl).then((repos) => {
+    axios.get(apiUrl, { params: { pat_name: searchedPatientName } }).then((repos) => {
       setPatientTableRows(repos.data);
     });
-  }, []);
+  }, [searchedPatientName]);
 
   return (
     <TableContainer component={Paper}>
+      <TextField
+        autoFocus
+        margin="dense"
+        id="name"
+        value={searchedPatientName}
+        onChange={(event) => {
+          setSearchedPatientName(event.target.value);
+        }}
+        label="Search by PATIENT NAME"
+        type="text"
+        fullWidth
+      />
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
