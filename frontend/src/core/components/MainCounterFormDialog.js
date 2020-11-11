@@ -45,7 +45,13 @@ export default function MainCounterFormDialog({ row }) {
       return;
     }
     const apiUrl = "http://localhost:8000/api/patients/" + pat_id;
-    await axios.put(apiUrl, { pat_batch_no: row.med_batchNo, pat_mqty: pat_mqty }).then((repos) => {});
+    var x;
+    await axios.get(apiUrl, {}).then((repos) => {
+      x = repos.data.pat_batch_no;
+    });
+    await axios
+      .put(apiUrl, { pat_batch_no: x + " " + row.med_batchNo, pat_mqty: pat_mqty })
+      .then((repos) => {});
 
     const apiUrl2 = "http://localhost:8000/api/medicines/" + row.id;
     await axios.put(apiUrl2, { med_qty: newqty }).then((repos) => {});
