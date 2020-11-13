@@ -19,7 +19,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.patients = require("./patient.model.js")(sequelize, Sequelize);
 db.medicines = require("./medicine.model.js")(sequelize, Sequelize);
 db.stock_medicines = require("./stock_medicine.model.js")(sequelize, Sequelize);

@@ -6,7 +6,7 @@ export default function CounterModule(props) {
   return (
     <div>
       <h2 style={{ color: "#ffffff" }}>Counter Module</h2>
-      <CreateMedicineDialog/>
+      <CreateMedicineDialog />
       
       <MainCounterTable />
       <DownloadCounterMedicines/>

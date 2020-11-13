@@ -126,16 +126,3 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-
-// find all qty=0 Medicines
-exports.findAllPublished = (req, res) => {
-  Medicine.findAll({ where: { med_qty: 0 } })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving medicines.",
-      });
-    });
-};

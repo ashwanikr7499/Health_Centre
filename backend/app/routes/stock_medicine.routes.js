@@ -9,8 +9,7 @@ module.exports = (app) => {
   // Retrieve all Medicines
   router.get("/", stock_medicines.findAll);
 
-  // Retrieve all published Medicines
-  router.get("/published", stock_medicines.findAllPublished);
+
 
   // Retrieve a single stock_Medicine with id
   router.get("/:id", stock_medicines.findOne);

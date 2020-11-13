@@ -72,7 +72,7 @@ export default function PatientFormDialog({ row }) {
         Edit
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Edit Batch Number</DialogTitle>
+        <DialogTitle id="form-dialog-title">Edit PATIENT DETAILS</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus

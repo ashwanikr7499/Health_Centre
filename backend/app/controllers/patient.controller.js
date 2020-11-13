@@ -139,16 +139,3 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-
-// find all published Patient
-exports.findAllPublished = (req, res) => {
-  Patient.findAll({ where: { pat_ndays: "0" } })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving patients.",
-      });
-    });
-};
