@@ -55,7 +55,7 @@ export default function CreatePatientDialog() {
               set_pat_visitor_id(event.target.value);
             }}
             label="patient Visitor id"
-            type="text"
+            type="number"
             fullWidth
           />
 

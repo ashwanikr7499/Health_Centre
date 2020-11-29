@@ -83,7 +83,9 @@ export default function AddMedicineFormDialog() {
               set_med_qty(event.target.value);
             }}
             label="medicine quantity"
-            type="text"
+            type="Number"
+            min="0"
+            // oninput="validity.valid||(value='');"
             fullWidth
           />
         </DialogContent>

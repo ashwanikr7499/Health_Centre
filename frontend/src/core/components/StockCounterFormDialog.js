@@ -22,7 +22,7 @@ export default function StockCounterFormDialog({ row }) {
   };
   const handleCloseAndSubmit = async () => {
     if (parseInt(textInput) > parseInt(row.med_qty)) {
-      alert("Cant transfer ");
+      alert("Quantity not available ");
     } else {
       var toDecrease = parseInt(row.med_qty) - parseInt(textInput);
       //decrease  from stock counter
@@ -35,7 +35,7 @@ export default function StockCounterFormDialog({ row }) {
       await axios.get(api_main_med).then((repos) => {
         mainCounterTableData = repos.data;
         let found = 0;
-       
+
         mainCounterTableData.map((each_row) => {
           if (each_row.med_name === row.med_name) {
             var toIncrease = parseInt(textInput) + parseInt(each_row.med_qty);

@@ -79,9 +79,7 @@ export default function PatientFormDialog({ row }) {
             margin="dense"
             id="name"
             value={pat_visitor_id}
-            onChange={(event) => {
-              set_pat_visitor_id(event.target.value);
-            }}
+            disabled={true}
             label="Patient id"
             type="text"
             fullWidth
@@ -92,9 +90,7 @@ export default function PatientFormDialog({ row }) {
             margin="dense"
             id="name"
             value={pat_name}
-            onChange={(event) => {
-              set_pat_name(event.target.value);
-            }}
+            disabled={true}
             label="Patient name"
             type="text"
             fullWidth
@@ -254,7 +250,7 @@ export default function PatientFormDialog({ row }) {
             fullWidth
           />
 
-          <TextField
+          {/* <TextField
             autoFocus
             margin="dense"
             id="name"
@@ -265,7 +261,7 @@ export default function PatientFormDialog({ row }) {
             label="Batch No."
             type="text"
             fullWidth
-          />
+          /> */}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

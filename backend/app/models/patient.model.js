@@ -44,7 +44,7 @@ module.exports = (sequelize, Sequelize) => {
     pat_m_status: {
       type: Sequelize.STRING,
       allowNull: true,
-      defaultValue: "NA", 
+      defaultValue: "NA",
     },
     pat_med_issued_by: {
       type: Sequelize.STRING,
@@ -69,9 +69,9 @@ module.exports = (sequelize, Sequelize) => {
     pat_batch_no: {
       type: Sequelize.STRING,
       allowNull: true,
-      defaultValue: "NA",
+      defaultValue: "",
     },
-  }); 
+  });
 
   return Patient;
 };

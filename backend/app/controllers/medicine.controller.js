@@ -64,7 +64,6 @@ exports.findOne = (req, res) => {
 
 // Update a Medicine by the id in the request
 exports.update = (req, res) => {
- 
   Medicine.update(req.body, {
     where: { id: req.params.id },
   })
