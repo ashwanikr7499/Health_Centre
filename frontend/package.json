@@ -15,7 +15,7 @@
     "react-export-excel": "^0.5.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "5.0.1",
     "react-swipeable-views": "^0.13.9",
     "testing-library": "0.0.2"
   },
